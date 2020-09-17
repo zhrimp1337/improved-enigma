@@ -21,7 +21,7 @@ class LocationClass(database_Methods):
         sql = "DELETE FROM Location WHERE LocationID =" + " " + str(self.LocationID)
         self.sql_query(sql)
 
-a = LocationClass(4,2,2)
-#a.Location_sql_insert()
+a = LocationClass(2,2,2)
+a.Location_sql_insert()
 #a.Location_sql_update()
-a.Location_sql_delete()
+#a.Location_sql_delete()
