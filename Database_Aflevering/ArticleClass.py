@@ -1,7 +1,7 @@
 from Database_Aflevering.DatabaseMain import database_Methods
 
 
-class ArticleClass(database_Methods):
+class ArticleClass(database_Methods): # Inherits from database_methods in order to make sql queries
 
     def __init__(self, ArticleID, Type, Price, Colour, WeightGram, Make, Year):
         database_Methods.__init__(self)

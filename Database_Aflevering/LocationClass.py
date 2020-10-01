@@ -1,7 +1,7 @@
 from Database_Aflevering.DatabaseMain import database_Methods
 
 
-class LocationClass(database_Methods):
+class LocationClass(database_Methods): # Inherits from database_methods in order to make sql queries
 
     def __init__(self, LocationID, Line, Shelf):
         database_Methods.__init__(self)

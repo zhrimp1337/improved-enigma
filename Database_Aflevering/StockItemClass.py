@@ -1,7 +1,7 @@
 from Database_Aflevering.DatabaseMain import database_Methods
 
 
-class StockItemClass(database_Methods):
+class StockItemClass(database_Methods):  # Inherits from database_methods in order to make sql queries
 
     def __init__(self, ArticleID, LocationID, Amount):
         database_Methods.__init__(self)
