@@ -15,25 +15,21 @@ class ArticleClass(database_Methods):
 
     def Article_sql_insert(self):
         sql = "INSERT INTO Article (ArticleID,Type,Price,Colour,WeightGram,Make,Year) Values (" + str(self.ArticleID) + ", '" + self.Type + "', " + str(self.Price) + ", '" + self.Colour + "', " + str(self.WeightGram) + ", '" + self.Make + "', " + str(self.Year) + ")"
-        self.sql_query(sql)
+        self.sql_query(sql, None)
 
     def Article_sql_update(self):
         sql = "UPDATE Article SET ArticleID =" + " " + str(self.ArticleID) + ", " + "Type =" + " '" + self.Type + "', " + "Price =" + " " + str(self.Price) + ", " + "Colour =" + " '" + self.Colour + "', " + "WeightGram =" + " " + str(self.WeightGram) + ", " + "Make =" + " '" + self.Make + "', " + "Year =" + " " + str(self.Year) + " " + "WHERE ArticleID =" +" "+ str(self.ArticleID)+""
-        self.sql_query(sql)
+        self.sql_query(sql, None)
 
     def Article_sql_delete(self):
         sql = "DELETE FROM Article WHERE ArticleID =" + " " + str(self.ArticleID)
-        self.sql_query(sql)
+        self.sql_query(sql, None)
 
-    def print_object(self):
-        print(self.Type)
+    def Article_sql_select(self):
+        sql = "SELECT * FROM Article Where ArticleID =" + " " + str(self.ArticleID)
+        row = self.sql_query(sql, True)
+        return row
 
-    def articleupdate(self):
-        print("test")
 
-a = ArticleClass(input(), 'cpu', 120, 'grey', 500, 'intel',1997)
-#a.Article_sql_update()
-#a.Article_sql_insert()
-a.Article_sql_delete()
 
 

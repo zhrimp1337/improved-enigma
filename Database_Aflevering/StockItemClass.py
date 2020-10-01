@@ -11,15 +11,17 @@ class StockItemClass(database_Methods):
 
     def StockItem_sql_insert(self):
         sql = "INSERT INTO StockItem (ArticleID,LocationID,Amount) Values (" + str(self.ArticleID) + ", '" + str(self.LocationID) + "', " + str(self.Amount) + ")"
-        self.sql_query(sql)
+        self.sql_query(sql, None)
 
     def StockItem_sql_update(self):
-        sql = "UPDATE StockItem SET LocationID =" + " " + str(self.LocationID) + ", " + "Line =" + " " + str(self.Line) + ", " + "Shelf =" + " " + str(self.Shelf) + "WHERE LocationID =" + " " + str(self.LocationID)
-        self.sql_query(sql)
+        sql = "UPDATE StockItem SET LocationID =" + " " + str(self.LocationID) + ", " + "ArticleID =" + " " + str(self.ArticleID) + ", " + "Amount =" + " " + str(self.Amount) + "WHERE LocationID =" + " " + str(self.LocationID)
+        self.sql_query(sql, None)
 
     def StockItem_sql_delete(self):
-        sql = "DELETE FROM StockItem WHERE ArticleID =" + " " + str(self.LocationID)
-        self.sql_query(sql)
+        sql = "DELETE FROM StockItem WHERE ArticleID =" + " " + str(self.ArticleID) + "AND LocationID =" + " " + str(self.LocationID)
+        self.sql_query(sql, None)
 
-a = StockItemClass(2,2,2)
-a.StockItem_sql_insert()
+    def StockItem_sql_select(self):
+        sql = "SELECT * FROM StockItem Where ArticleID =" + " " + str(self.ArticleID)
+        row = self.sql_query(sql, True)
+        return row

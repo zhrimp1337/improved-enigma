@@ -11,17 +11,18 @@ class LocationClass(database_Methods):
 
     def Location_sql_insert(self):
         sql = "INSERT INTO Location (LocationID,Line,Shelf) Values (" + str(self.LocationID) + ", '" + str(self.Line) + "', " + str(self.Shelf) + ")"
-        self.sql_query(sql)
+        self.sql_query(sql, None)
 
     def Location_sql_update(self):
         sql = "UPDATE Location SET LocationID =" + " " + str(self.LocationID) + ", " + "Line =" + " " + str(self.Line) + ", " + "Shelf =" + " " + str(self.Shelf) + "WHERE LocationID =" + " " + str(self.LocationID)
-        self.sql_query(sql)
+        self.sql_query(sql, None)
 
     def Location_sql_delete(self):
         sql = "DELETE FROM Location WHERE LocationID =" + " " + str(self.LocationID)
-        self.sql_query(sql)
+        self.sql_query(sql, None)
 
-a = LocationClass(2,2,2)
-a.Location_sql_insert()
-#a.Location_sql_update()
-#a.Location_sql_delete()
+    def Location_sql_select(self):
+        sql = "SELECT * FROM Location Where LocationID =" + " " + str(self.LocationID)
+        row = self.sql_query(sql, True)
+        return row
+
